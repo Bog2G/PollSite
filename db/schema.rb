@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_14_160518) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_16_095750) do
+  create_table "polls", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_polls_on_user_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string "question"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "poll_id"
+    t.index ["poll_id"], name: "index_questions_on_poll_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
