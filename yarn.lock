@@ -137,3 +137,7 @@ to-regex-range@^5.0.1:
   integrity sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==
   dependencies:
     is-number "^7.0.0"
+
+vanilla-nested@arielj/vanilla-nested:
+  version "1.7.0"
+  resolved "https://codeload.github.com/arielj/vanilla-nested/tar.gz/17bc36e840f4f017efd78f76227702dce2b3c97e"

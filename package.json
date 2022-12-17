@@ -5,7 +5,8 @@
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.2",
-    "sass": "^1.56.2"
+    "sass": "^1.56.2",
+    "vanilla-nested": "arielj/vanilla-nested"
   },
   "scripts": {
     "build:css": "sass ./app/assets/stylesheets/application.bootstrap.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules"
