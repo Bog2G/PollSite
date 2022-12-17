@@ -1,0 +1,35 @@
+<%= form_with(model: poll) do |form| %>
+  <% if poll.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(poll.errors.count, "error") %> prohibited this poll from being saved:</h2>
+
+      <ul>
+        <% poll.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="other">
+    <%= form.label :title, "Poll Title", for: :title, style: "display: block; font-size: 20px" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <%= form.label :questions %>
+  <br/>
+  <%= link_to_add_nested(form, :questions, '#questions') %>
+  <div class='questions'>
+    <%= form.fields_for :questions do |builder| %>
+      <%= render 'question_fields', form: builder %>
+    <% end %>
+  </div>
+
+  <div>
+    <br/>
+    <%= form.submit %>
+    <br/>
+  </div>
+<% end %>
+
+
