@@ -46,9 +46,14 @@ class PollsController < ApplicationController
     if @poll.update(poll_params)
       selected_question_id = params[:poll][:question_id]
       selected_question = Question.find(selected_question_id)
-      @vote = Vote.create(question_id: selected_question.id, user_id: current_user.id, poll_id: @poll.id)
-      @vote.save
-      redirect_to root_path, notice: 'Poll was successfully updated.'
+      if Vote.exists?(user_id: current_user.id, poll_id: @poll.id)
+        # Display an error message or redirect the user to a different page
+        redirect_to @poll, notice: "You have already cast a vote for this poll."
+      else
+        @vote = Vote.create(question_id: selected_question.id, user_id: current_user.id, poll_id: @poll.id)
+        @vote.save
+        redirect_to root_path, notice: 'Poll was successfully updated.'
+      end
     else
       puts "Go fuck yourself"
     end
