@@ -28,7 +28,6 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 gem "cssbundling-rails"
-gem 'bootstrap-sass'
 gem 'devise'
 gem 'chartkick'
 gem 'pusher'

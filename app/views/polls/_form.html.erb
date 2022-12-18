@@ -19,7 +19,7 @@
   <%= form.label :questions %>
   <br/>
   <%= link_to_add_nested(form, :questions, '#questions') %>
-  <div class='questions'>
+  <div id='questions'>
     <%= form.fields_for :questions do |builder| %>
       <%= render 'question_fields', form: builder %>
     <% end %>

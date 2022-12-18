@@ -1,6 +1,9 @@
 
 
 <%= render @poll %>
+<% @poll.questions.each do |question| %>
+  <p><%= question.question %></p>
+<% end %>
 
 <div>
   <%= link_to "Edit this poll", edit_poll_path(@poll) %> |

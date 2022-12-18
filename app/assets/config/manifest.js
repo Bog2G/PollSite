@@ -3,3 +3,4 @@
 //= link_tree ../../../vendor/javascript .js
 //= link_tree ../builds
 //= require vanilla_nested
+//= link application.css
