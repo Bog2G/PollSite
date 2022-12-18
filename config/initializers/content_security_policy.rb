@@ -23,3 +23,4 @@
 #   # Report violations without enforcing the policy.
 #   # config.content_security_policy_report_only = true
 # end
+Rails.application.config.assets.precompile += %w( bootstrap.min.js popper.js )

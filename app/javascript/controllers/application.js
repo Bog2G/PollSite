@@ -9,4 +9,5 @@ window.Stimulus   = application
 export { application }
 
 import "vanilla-nested";
+import 'bootstrap';
 

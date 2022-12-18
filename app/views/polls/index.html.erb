@@ -2,14 +2,15 @@
 
 <div id="polls">
   <% @polls.each do |poll| %>
-    <div>
-      <div>
-        <h5><%= poll.title %></h5>
-        <h6 class="mb-2 text-muted"><%= poll.user.email.capitalize.slice(0, poll.user.email.index('@')) %></h6>
-        <%= link_to "Show this poll", poll %>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%= poll.title %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= poll.user.email.capitalize.slice(0, poll.user.email.index('@')) %></h6>
+        <%= link_to "Show this poll", poll, class: "btn btn-primary" %>
       </div>
     </div>
   <% end %>
 </div>
 
-<%= link_to "New poll", new_poll_path %>
+<%= link_to "New poll", new_poll_path, class: "btn btn-primary" %>
+

@@ -1,6 +1,5 @@
-
-
 <%= render @poll %>
+<%= pie_chart Vote.where(:poll_id => @poll.id, :question_id => Question.new.name).group(:question_id).count %>
 <%= form_with model: @poll, local: true do |form| %>
   <% @poll.questions.each do |question| %>
     <p>

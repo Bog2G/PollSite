@@ -2,4 +2,7 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 import "vanilla-nested";
-
+import "popper"
+import "bootstrap"
+import "chartkick"
+import "Chart.bundle"
