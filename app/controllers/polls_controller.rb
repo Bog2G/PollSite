@@ -42,14 +42,15 @@ class PollsController < ApplicationController
 
   # PATCH/PUT /polls/1 or /polls/1.json
   def update
-    respond_to do |format|
-      if @poll.update(poll_params)
-        format.html { redirect_to poll_url(@poll), notice: "Poll name was updated." }
-        format.json { render :show, status: :ok, location: @poll }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @poll.errors, status: :unprocessable_entity }
-      end
+
+    if @poll.update(poll_params)
+      selected_question_id = params[:poll][:question_id]
+      selected_question = Question.find(selected_question_id)
+      @vote = Vote.create(question_id: selected_question.id, user_id: current_user.id, poll_id: @poll.id)
+      @vote.save
+      redirect_to root_path, notice: 'Poll was successfully updated.'
+    else
+      puts "Go fuck yourself"
     end
   end
 
@@ -71,7 +72,7 @@ class PollsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def poll_params
-      params.require(:poll).permit(:title, questions_attributes: [:id, :question, :_destroy])
+      params.require(:poll).permit(:title, :question_id, questions_attributes: [:id, :question, :_destroy])
     end
 
 end

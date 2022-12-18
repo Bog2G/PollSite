@@ -1,8 +1,14 @@
 
 
 <%= render @poll %>
-<% @poll.questions.each do |question| %>
-  <p><%= question.question %></p>
+<%= form_with model: @poll, local: true do |form| %>
+  <% @poll.questions.each do |question| %>
+    <p>
+      <%= form.radio_button :question_id, question.id %>
+      <%= question.question %>
+    </p>
+  <% end %>
+  <%= form.submit "Cast Vote" %>
 <% end %>
 
 <div>
