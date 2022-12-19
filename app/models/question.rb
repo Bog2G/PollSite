@@ -4,6 +4,6 @@ class Question < ApplicationRecord
   has_many :votes
 
   def name
-    questions.question
+    questions.object_id
   end
 end
