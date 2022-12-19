@@ -1,22 +1,32 @@
-<%= render @poll %>
-<%= pie_chart @poll.questions.where(:poll_id => @poll.id).joins(:votes).group(:question).count %>
-<%= form_with model: @poll, local: true do |form| %>
-  <% @poll.questions.each do |question| %>
-    <p>
-      <%= form.radio_button :question_id, question.id %>
-      <%= question.question %>
-    </p>
-  <% end %>
-  <%= form.submit "Cast Vote" %>
-<% end %>
-
-<div>
-  <% if current_user.id == @poll.user_id %>
-    <%= link_to "Edit this poll", edit_poll_path(@poll) %>
-    <%= button_to "Destroy this poll", @poll, method: :delete %>
-  <% end %>
-
-  <%= link_to "Back to polls", polls_path %>
-
-
+<div class="row">
+  <div class="col-md-4 offset-md-2">
+    <div class="card ">
+      <div class="card-header">
+        <h3 class="text-center"><%= @poll.title %></h3>
+      </div>
+      <div class="card-body">
+        <%= form_with model: @poll, local: true do |form| %>
+          <% @poll.questions.each do |question| %>
+            <p>
+              <%= form.radio_button :question_id, question.id %>
+              <%= question.question %>
+            </p>
+          <% end %>
+          <%= form.submit "Cast Vote", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+      <div class="card-footer d-flex justify-content-between">
+        <% if current_user.id == @poll.user_id %>
+          <%= link_to "Edit this poll", edit_poll_path(@poll), class: "btn btn-secondary" %>
+        <% end %>
+        <%= link_to "Back to polls", polls_path, class: "btn btn-success mx-auto" %>
+        <% if current_user.id == @poll.user_id %>
+          <%= button_to "Destroy this poll", @poll, method: :delete, class: "btn btn-danger" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <%= pie_chart @poll.questions.where(:poll_id => @poll.id).joins(:votes).group(:question).count, suffix: " Votes" %>
+  </div>
 </div>
