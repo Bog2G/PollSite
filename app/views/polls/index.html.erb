@@ -1,12 +1,16 @@
-<h1>Polls</h1>
+<h1 class="text-center">Polls</h1>
 
-<div id="polls">
+<div id="polls" >
   <% @polls.each do |poll| %>
-    <div class="card">
+    <div class="card" style="width: 19rem; position: relative; float: left; margin: 10px; height: 15rem">
       <div class="card-body">
-        <h5 class="card-title"><%= poll.title %></h5>
-        <h6 class="card-subtitle mb-2 text-muted"><%= poll.user.email.capitalize.slice(0, poll.user.email.index('@')) %></h6>
-        <%= link_to "Show this poll", poll, class: "btn btn-primary" %>
+        <h5 class="card-title text-center"><%= poll.title %></h5>
+        <h6 class="card-subtitle mb-2 text-muted text-center">Made by <%= poll.user.email.capitalize.slice(0, poll.user.email.index('@')) %></h6>
+        <h6 class="card-subtitle" style="margin-top: 5.5rem"> Votes: <%= Vote.group(:poll_id).where(:polls => poll).count[poll.id] %>  </h6>
+
+        <div class="text-center card-footer" style="bottom: 0; position: absolute; width: 100%; margin-left: -1rem">
+          <%= link_to "Vote on this poll", poll, class: "btn btn-primary" %>
+        </div>
       </div>
     </div>
   <% end %>
