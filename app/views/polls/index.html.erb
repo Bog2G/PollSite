@@ -2,7 +2,7 @@
 
 <div id="polls" >
   <% @polls.each do |poll| %>
-    <div class="card" style="width: 19rem; position: relative; float: left; margin: 10px; height: 15rem">
+    <div class="card shadow-lg" style="width: 19rem; position: relative; float: left; margin: 10px; height: 15rem">
       <div class="card-body">
         <h5 class="card-title text-center"><%= poll.title %></h5>
         <h6 class="card-subtitle mb-2 text-muted text-center">Made by <%= poll.user.email.capitalize.slice(0, poll.user.email.index('@')) %></h6>
