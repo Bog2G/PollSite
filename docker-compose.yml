@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  db:
+    image: keinos/sqlite3:latest
+    volumes:
+      - D:/Container DB/poll-db:/pollDB
+  web:
+    build: .
+    command: bash -c "bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/Rails-Docker
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+
+
