@@ -1,3 +1,25 @@
+<style>
+    @media (max-width: 700px) {
+        .card-footer {
+            font-size: xx-small;
+            padding: 13px 5px;
+        }
+
+    }
+
+    @media (min-width: 770px) and (max-width: 995px) {
+        .col-md-5 {
+            margin-top: 6rem;
+            margin-left: 16rem;
+        }
+        .col-md-4 {
+            width: 70%;
+        }
+    }
+
+</style>
+
+
 <div class="row">
   <div class="col-md-4 offset-md-2">
     <div class="card ">
@@ -26,7 +48,7 @@
       </div>
     </div>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-5">
     <%= pie_chart @poll.questions.where(:poll_id => @poll.id).joins(:votes).group(:question).count, suffix: " Votes" %>
   </div>
 </div>

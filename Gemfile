@@ -16,6 +16,7 @@ gem 'chartkick'
 gem 'pusher'
 gem 'vanilla_nested', github: 'arielj/vanilla-nested', branch: :main
 gem 'bootstrap'
+gem 'jsbundling-rails'
 
 
 # Use Redis adapter to run Action Cable in production
