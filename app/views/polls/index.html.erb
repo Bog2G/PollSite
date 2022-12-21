@@ -1,6 +1,28 @@
+<style>
+  @media (min-width: 300px) and (max-width: 500px) {
+      #polls {
+          margin-left: 1.5rem;
+      }
+  }
+  @media (max-width: 280px) {
+      #polls {
+          margin-left: -3rem;
+      }
+  }
+</style>
+
+
+
 <h1 class="text-center">Polls</h1>
 
-<div id="polls" class="" >
+<%= form_tag polls_path, method: :get do %>
+  <%= hidden_field_tag :filter, "voted" %>
+  <div class="text-center">
+    <%= submit_tag "Show polls I haven't voted on", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<div id="polls" class="mx-md-5" >
   <% @polls.each do |poll| %>
     <div class="card shadow-lg" style="width: 19rem; position: relative; float: left; margin: 10px; height: 15rem">
       <div class="card-body">

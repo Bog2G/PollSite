@@ -4,7 +4,11 @@ class PollsController < ApplicationController
 
   # GET /polls or /polls.json
   def index
-    @polls = Poll.all
+    if params[:filter] == "voted"
+      @polls = Poll.where.not(id: current_user.votes.pluck(:poll_id))
+    else
+      @polls = Poll.all
+    end
   end
 
   # GET /polls/1 or /polls/1.json
