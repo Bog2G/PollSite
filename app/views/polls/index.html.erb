@@ -1,15 +1,5 @@
-<style>
-  @media (min-width: 300px) and (max-width: 600px) {
-      #polls {
-          margin-left: 1.3rem;
-      }
-  }
-  @media (max-width: 280px) {
-      #polls {
-          margin-left: -3rem;
-      }
-  }
-</style>
+
+
 
 
 
@@ -17,15 +7,15 @@
 <% if params[:filter] == "voted" %>
   <%= form_tag polls_path, method: :get do %>
     <%= hidden_field_tag :filter, "unvoted", id: "filter" %>
-    <div class="text-center">
+    <div class="text-center" style="margin-top: 3rem">
       <%= submit_tag "Show all", class: "btn btn-primary" %>
     </div>
   <% end %>
 <% else %>
   <%= form_tag polls_path, method: :get do %>
     <%= hidden_field_tag :filter, "voted", id: "filter" %>
-    <div class="text-center">
-      <%= submit_tag "Filter polls", class: "btn btn-primary" %>
+    <div class="text-center" style="margin-top: 3rem">
+      <%= submit_tag "Filter voted polls", class: "btn btn-primary" %>
     </div>
   <% end %>
 <% end %>
@@ -33,7 +23,7 @@
 
 
 
-<div id="polls" class="mx-md-5" >
+<div id="polls" class="mx-md-5 d-flex justify-content-center" style="flex-wrap: wrap; margin-top: 6rem" >
   <% @polls.each do |poll| %>
     <div class="card shadow-lg" style="width: 19rem; position: relative; float: left; margin: 10px; height: 15rem">
       <div class="card-body">
@@ -41,9 +31,9 @@
         <h6 class="card-subtitle mb-2 text-muted text-center">Made by <%= poll.user.email.capitalize.slice(0, poll.user.email.index('@')) %></h6>
         <h6 class="card-subtitle" style="margin-top: 5.5rem"> Votes: <%= Vote.group(:poll_id).where(:polls => poll).count[poll.id] %>  </h6>
 
-        <div class="text-center card-footer" style="bottom: 0; position: absolute; width: 100%; margin-left: -1rem">
-          <%= link_to "Vote on this poll", poll, class: "btn btn-primary" %>
-        </div>
+
+          <%= link_to "Vote on this poll", poll, class: "text-center card-footer bg-primary text-white", style: "bottom: 0; position: absolute; width: 100%; margin-left: -1rem; text-decoration: none; font-size: 1.1rem; font-weight: bold; text-transform: uppercase;" %>
+
       </div>
     </div>
   <% end %>
