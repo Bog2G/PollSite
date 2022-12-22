@@ -1,7 +1,7 @@
 <style>
-  @media (min-width: 300px) and (max-width: 500px) {
+  @media (min-width: 300px) and (max-width: 600px) {
       #polls {
-          margin-left: 1.5rem;
+          margin-left: 1.3rem;
       }
   }
   @media (max-width: 280px) {
@@ -14,13 +14,24 @@
 
 
 <h1 class="text-center">Polls</h1>
-
-<%= form_tag polls_path, method: :get do %>
-  <%= hidden_field_tag :filter, "voted" %>
-  <div class="text-center">
-    <%= submit_tag "Show polls I haven't voted on", class: "btn btn-primary" %>
-  </div>
+<% if params[:filter] == "voted" %>
+  <%= form_tag polls_path, method: :get do %>
+    <%= hidden_field_tag :filter, "unvoted", id: "filter" %>
+    <div class="text-center">
+      <%= submit_tag "Show all", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+<% else %>
+  <%= form_tag polls_path, method: :get do %>
+    <%= hidden_field_tag :filter, "voted", id: "filter" %>
+    <div class="text-center">
+      <%= submit_tag "Filter polls", class: "btn btn-primary" %>
+    </div>
+  <% end %>
 <% end %>
+
+
+
 
 <div id="polls" class="mx-md-5" >
   <% @polls.each do |poll| %>
