@@ -1,13 +1,30 @@
+<style>
+  @media (max-width: 1300px) {
+      .image {
+          margin: 0 auto !important;
+      }
+      .container {
+          margin-top: 0 !important;
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+      }
+  }
+</style>
+
+
+
+
 <body class="bg-white">
 <div class="container text-center" style="margin-top: 8rem;">
   <div style="float: left">
     <h2 style="margin-bottom: 5rem; font-weight: bold; margin-top: 6rem">
       Sign up now to cast your opinion on everything
     </h2>
-    <p style="font-size: large; margin-bottom: 3.7rem;">Your opinion matters more than you think!<br/> Check what is being discussed now and give your take on it!<br/> or make a new discussion and see the general opinion </p>
+    <p style="font-size: large; margin-bottom: 3.7rem;">Your opinion matters more than you think!<br/> Check what is being discussed now and give your take on it<br/> or make a new discussion and see the general opinion </p>
     <%= link_to 'Start Polling Now', new_user_registration_path, class: "btn btn-primary" %>
   </div>
-  <div style="float: right">
+  <div class="image" style="float: right">
     <%= image_tag ("undraw_quiz_re_aol4.svg"), class: "img-responsive", style: "max-width: 80%" %>
   </div>
 </div>
