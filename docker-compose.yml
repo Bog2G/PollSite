@@ -14,6 +14,8 @@ services:
     depends_on:
       - db
     tty: true
+    environment:
+      - RAILS_MASTER_KEY=1a611bc26d1314a707bd72d27db1ac25
 volumes:
   db_data:
 
