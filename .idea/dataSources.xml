@@ -10,5 +10,14 @@
       <jdbc-url>jdbc:sqlite:C:\Users\wegwe\RubymineProjects\PollSite\db\development.sqlite3</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="Rails PollSite: production" uuid="1b20f340-86bb-4554-bf73-7d8ddb669c6c">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\wegwe\RubymineProjects\PollSite\db\production.sqlite3</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

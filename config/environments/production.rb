@@ -9,7 +9,6 @@ Rails.application.configure do
   config.assets.compile = false
   config.assets.digest = true
   config.public_file_server.enabled = true
-  config.assets.prefix = "/assets"
 
 
   # Eager load code on boot. This eager loads most of Rails and
@@ -28,7 +27,7 @@ Rails.application.configure do
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
-  config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
+  # config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
 
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass
