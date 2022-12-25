@@ -3,10 +3,20 @@
         .col-4 {
             width: 100%;
         }
+        .stuff{
+            margin-bottom: 5rem;
+        }
     }
 </style>
 
-
+<div class="stuff" style="top: 0; left: 0">
+  <h3 style="margin-left: 3rem">
+    ↑
+  </h3>
+  <h5>
+    Back to polls ?
+  </h5>
+</div>
 <div class="row justify-content-center">
   <div class="col-4 text-center">
     <%= form_with(model: poll) do |form| %>
